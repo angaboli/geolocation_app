@@ -16,11 +16,15 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        $users = new User();
+        return $this->render('admin/dashboard.html.twig', [
+            'users' => $users,
+        ]);
     }
 
     public function configureDashboard(): Dashboard
     {
+
         return Dashboard::new()
             ->setTitle('Geolocation App');
     }
