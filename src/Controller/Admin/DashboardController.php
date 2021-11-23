@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -11,14 +12,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+
+    private $user;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->user = $userRepository;
+    }
     /**
      * @Route("/admin", name="admin")
      */
     public function index(): Response
     {
-        $users = new User();
+        //dd($this->user->findByPaysGroup());
         return $this->render('admin/dashboard.html.twig', [
-            'users' => $users,
+            'users' => $this->user->findByPaysGroup()
         ]);
     }
 
@@ -31,8 +39,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Users', 'fas fa-user-circle', User::class);
+        yield MenuItem::linktoDashboard('Tableau de bord', 'fa fa-home');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user-circle', User::class)->setDefaultSort(['pays' => 'ASC']);
     }
 
 
