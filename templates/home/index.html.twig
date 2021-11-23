@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Geolocation | Indisponnible{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <h1 class="m-5">Sorry ! </h1>
+
+    <hr class="mt-xl-150">
+    <p class="lead text-danger">
+        <strong>Cette app est actuellement indisponible dans votre pays ou région </strong><br />
+        Mon IP: {{ ip }}
+
+    </p>
+</div>
+{% endblock %}
