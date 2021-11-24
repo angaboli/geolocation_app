@@ -9,7 +9,7 @@ How to get started with the project?
 ---------------------------------
 After cloning the project on local, make sure you have installed **PHP**, **Node.js**, **Composer**, **Symfony**.
 - To install symfony dependencies by taping in command line `composer install`, after installing all symfony dependencies. 
-- Create .env file and add information about database and email DSN.
+- Modify .env file and add information about database and email DSN.
 - After connecting the database to the app, start tne server by taping `symfony serve -d` in command line.
 - Install **webpack encore** dependencies by using `npm install` or `yarn install`, after that you can start encore by taping `yarn encore dev-server`.
 
