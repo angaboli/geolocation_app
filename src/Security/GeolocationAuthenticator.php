@@ -51,7 +51,7 @@ class GeolocationAuthenticator extends AbstractLoginFormAuthenticator
         }
 
 
-        return new RedirectResponse($this->urlGenerator->generate('profile.html.twig'));
+        return new RedirectResponse($this->urlGenerator->generate('profile'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
