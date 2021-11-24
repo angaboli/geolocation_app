@@ -11,7 +11,7 @@ class Geolocate{
     private $ip_address;
 
     public function __construct(){
-        $this->ip_address = '176.179.131.91';
+        $this->ip_address = $this->getUserIpAddr();
     }
     // get user's IP address
     function getUserIpAddr() {
