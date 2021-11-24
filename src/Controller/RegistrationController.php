@@ -50,10 +50,19 @@ class RegistrationController extends AbstractController
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('email@geolocati.on', 'Geolocation App'))
+                    ->from(new Address('admin@nk-missions.com', 'Geolocation App'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
+                    ->context([
+                        'prenom' => $user->getPrenom(),
+                        'nom' => $user->getNom(),
+                        'courriel' => $user->getEmail(),
+                        'genre' => $user->getSexe(),
+                        'pays' => $user->getPays(),
+                        'metier' => $user->getSecteur(),
+                        'dateDeNaissance' => $user->getDateDeNaissance()
+                    ])
             );
             // do anything else you need here, like send an email
 

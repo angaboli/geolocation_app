@@ -34,10 +34,10 @@ class HomeController extends AbstractController
     /**
      * @Route("/profile", name="profile")
      */
-    public function connected(): Response
+    public function profile(): Response
     {
         return $this->render('home/profile.html.twig', [
-            'connected' => 'ConnectedController',
+            'profile' => 'ConnectedController',
         ]);
     }
 }

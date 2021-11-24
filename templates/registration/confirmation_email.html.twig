@@ -1,11 +1,71 @@
-<h1>Hi! Please confirm your email!</h1>
+<style>
+    div {
+        align-content: center;
+        margin: auto;
+        width: 60%;
+    }
+    table {
+        border-collapse: collapse;
 
-<p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ signedUrl }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
-</p>
+    }
 
-<p>
-    Cheers!
-</p>
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+<div>
+
+    <table>
+        <tr>
+            <th>Bonjour, votre insctription à été enregistré.</th>
+        </tr>
+        <tr>
+            <td>Pour valider votre inscription, veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant :</td>
+        </tr>
+        <tr>
+            <td><a href="{{ signedUrl }}">Confirmer votre email</a>.</td>
+        </tr>
+        <tr>
+            <td>Ce lien expirera dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th colspan="2">Détails des informations enregistrées </th>
+        </tr>
+        <tr>
+            <td>Prénom :</td>
+            <td>{{ prenom }}</td>
+        </tr>
+        <tr>
+            <td>Nom :</td>
+            <td>{{ nom }}</td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td>{{ courriel }}</td>
+        </tr>
+        <tr>
+            <td>Sexe :</td>
+            <td>{{ genre }}</td>
+        </tr>
+        <tr>
+            <td>Pays :</td>
+            <td>{{ pays }}</td>
+        </tr><tr>
+            <td>Métier :</td>
+            <td>{{ metier }}</td>
+        </tr><tr>
+            <td>Date de naissance :</td>
+            <td>{{ dateDeNaissance }}</td>
+        </tr>
+    </table>
+
+    <p>
+        Bien à vous!
+    </p>
+</div>
+
